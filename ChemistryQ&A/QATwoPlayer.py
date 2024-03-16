@@ -1,5 +1,5 @@
 # coding=gbk
-import time
+from time import sleep
 from random import sample
 from threading import Thread
 import pygame
