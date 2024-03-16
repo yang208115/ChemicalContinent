@@ -1,0 +1,12 @@
+# created by virtualenv automatically
+
+/.idea
+/Lib
+/Scripts
+pyvenv.cfg
+/Include
+pygame-2.5.2-cp38-cp38-win_amd64.whl
+balloon setup.exe
+mian.exe
+/__pycache__
+/balloon/__pycache__

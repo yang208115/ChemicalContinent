@@ -1,0 +1,1 @@
+python mian.py
