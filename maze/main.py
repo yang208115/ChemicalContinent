@@ -1,5 +1,3 @@
-# coding=gbk
-# coding=gbk
 # -*- coding: utf-8 -*-
 import pygame
 import time
@@ -12,7 +10,7 @@ pygame.init()
 pygame.mixer.init()
 
 
-# ÔÚ¡°»¯Ñ§´óÂ½¡±£¬½ğÊôÔªËØºÍÆäËûÔªËØÖ®¼äµÄÃ¬¶ÜÓúÑİÓúÁÒ£¬Ñİ±ä³ÉÒ»³¡¼¤ÁÒµÄÔªËØÖ®Õ½¡£Ö÷½ÇĞÑÀ´Ê±·¢ÏÖ×Ô¼ºÉí´¦Õ½³¡£¬ÃÔÊ§ÔÚÕâ¸öÎ´ÖªµÄÊÀ½çÖĞ¡£Í»È»£¬½ğÊôÔªËØÏòËû¹¥»÷£¬¶øÒ»¸öÉí×Å¡°Ì¼¡±Õ½ÅÛµÄĞ¡±ø¾ÈÁËÖ÷½ÇÒ»Ãü¡£Ö÷½ÇÒò´Ë·Ç³£¸Ğ¼¤£¬Ëû¾ö¶¨ºÍËûÃÇÒ»Æğ´ò°Ü½ğÊôÔªËØ¡­¡­
+# åœ¨â€œåŒ–å­¦å¤§é™†â€ï¼Œé‡‘å±å…ƒç´ å’Œå…¶ä»–å…ƒç´ ä¹‹é—´çš„çŸ›ç›¾æ„ˆæ¼”æ„ˆçƒˆï¼Œæ¼”å˜æˆä¸€åœºæ¿€çƒˆçš„å…ƒç´ ä¹‹æˆ˜ã€‚ä¸»è§’é†’æ¥æ—¶å‘ç°è‡ªå·±èº«å¤„æˆ˜åœºï¼Œè¿·å¤±åœ¨è¿™ä¸ªæœªçŸ¥çš„ä¸–ç•Œä¸­ã€‚çªç„¶ï¼Œé‡‘å±å…ƒç´ å‘ä»–æ”»å‡»ï¼Œè€Œä¸€ä¸ªèº«ç€â€œç¢³â€æˆ˜è¢çš„å°å…µæ•‘äº†ä¸»è§’ä¸€å‘½ã€‚ä¸»è§’å› æ­¤éå¸¸æ„Ÿæ¿€ï¼Œä»–å†³å®šå’Œä»–ä»¬ä¸€èµ·æ‰“è´¥é‡‘å±å…ƒç´ â€¦â€¦
 
 class SceneSwitching:
     def __init__(self):
@@ -44,20 +42,20 @@ class MainScene:
         pygame.display.set_caption('chemical reaction')
         self.scene = scene
         self.font = pygame.font.Font("./Fonts/simsun.ttc", 36)
-        self.text = ('ÔÚ¡°»¯Ñ§´óÂ½¡±£¬½ğÊôÔªËØºÍÆäËûÔªËØÖ®¼äµÄÃ¬\n¶ÜÓúÑİÓúÁÒ£¬Ñİ±ä³ÉÒ»³¡¼¤ÁÒµÄÔªËØÖ®Õ½¡£Ö÷½Ç\nĞÑÀ´Ê±·¢ÏÖ×Ô¼ºÉí´¦Õ½³¡£¬ÃÔÊ§ÔÚÕâ¸öÎ´ÖªµÄÊÀ\n½çÖĞ¡£Í»È»£¬'
-                     '½ğÊôÔªËØÏòËû¹¥»÷£¬¶øÒ»¸öÉí×Å\n¡°Ì¼¡±Õ½ÅÛµÄĞ¡±ø¾ÈÁËÖ÷½ÇÒ»Ãü¡£Ö÷½ÇÒò´Ë·Ç³£\n¸Ğ¼¤£¬Ëû¾ö¶¨ºÍËûÃÇÒ»Æğ´ò°Ü½ğÊôÔªËØ¡­¡­!')
+        self.text = ('åœ¨â€œåŒ–å­¦å¤§é™†â€ï¼Œé‡‘å±å…ƒç´ å’Œå…¶ä»–å…ƒç´ ä¹‹é—´çš„çŸ›\nç›¾æ„ˆæ¼”æ„ˆçƒˆï¼Œæ¼”å˜æˆä¸€åœºæ¿€çƒˆçš„å…ƒç´ ä¹‹æˆ˜ã€‚ä¸»è§’\né†’æ¥æ—¶å‘ç°è‡ªå·±èº«å¤„æˆ˜åœºï¼Œè¿·å¤±åœ¨è¿™ä¸ªæœªçŸ¥çš„ä¸–\nç•Œä¸­ã€‚çªç„¶ï¼Œ'
+                     'é‡‘å±å…ƒç´ å‘ä»–æ”»å‡»ï¼Œè€Œä¸€ä¸ªèº«ç€\nâ€œç¢³â€æˆ˜è¢çš„å°å…µæ•‘äº†ä¸»è§’ä¸€å‘½ã€‚ä¸»è§’å› æ­¤éå¸¸\næ„Ÿæ¿€ï¼Œä»–å†³å®šå’Œä»–ä»¬ä¸€èµ·æ‰“è´¥é‡‘å±å…ƒç´ â€¦â€¦!')
         self.text_lines = self.text.split('\n')
         self.text_surfaces = [self.font.render(line, True, (0, 0, 0)) for line in self.text_lines]
-        # ÉèÖÃ´ò×Ö»úĞ§¹ûµÄ²ÎÊı
-        self.typing_speed = 30  # ´ò×ÖËÙ¶È£¬Ã¿·ÖÖÓ×ÖÊı
-        self.time_per_char = 60 / self.typing_speed  # ¼ÆËãÃ¿¸ö×Ö·ûµÄÏÔÊ¾Ê±¼ä
+        # è®¾ç½®æ‰“å­—æœºæ•ˆæœçš„å‚æ•°
+        self.typing_speed = 30  # æ‰“å­—é€Ÿåº¦ï¼Œæ¯åˆ†é’Ÿå­—æ•°
+        self.time_per_char = 60 / self.typing_speed  # è®¡ç®—æ¯ä¸ªå­—ç¬¦çš„æ˜¾ç¤ºæ—¶é—´
         self.elapsed_time = 0
         self.current_line = 0
         self.current_char = 0
         self.if_prologue = if_prologue
 
     def run_game(self):
-        """¶¨ÒåÓÎÏ·Ö÷³ÌĞò"""
+        """å®šä¹‰æ¸¸æˆä¸»ç¨‹åº"""
 
         while self.scene.game_run:
             self._check_event()
@@ -80,7 +78,7 @@ class MainScene:
             self.clock.tick(60)
 
     def _check_event(self):
-        """¼ì²éÊÂ¼ş"""
+        """æ£€æŸ¥äº‹ä»¶"""
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -158,7 +156,7 @@ class SelectALevel:
         self.mode_img = pygame.transform.scale(self.mode_img_tmp, (400, 80))
 
     def _check_event(self):
-        """¼ì²éÊÂ¼ş"""
+        """æ£€æŸ¥äº‹ä»¶"""
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -168,14 +166,14 @@ class SelectALevel:
                 self.check_mouse(mouse_x, mouse_y)
 
     def check_mouse(self, mouse_x, mouse_y):
-        # ¶¨Òå¾ØĞÎ¿ò²¼¾ÖËùĞèµÄ³õÊ¼²ÎÊı
-        initial_x = 16  # ¾ØĞÎ¿ò×óÉÏ½Ç x ×ø±êµÄ³õÊ¼Öµ
-        width = 180  # ¾ØĞÎ¿òµÄ¿í¶È
-        gap_x = 16  # ¾ØĞÎ¿òÖ®¼äµÄË®Æ½¼ä¸ô
-        initial_y = 100  # ¾ØĞÎ¿ò×óÉÏ½Ç y ×ø±êµÄ³õÊ¼Öµ
-        height = 120  # ¾ØĞÎ¿òµÄ¸ß¶È
-        gap_y = 50  # ¾ØĞÎ¿òÖ®¼äµÄ´¹Ö±¼ä¸ô
-        # ¶¨Òå x ÁĞ±í£¬±íÊ¾¾ØĞÎ¿òµÄ×óÉÏ½Ç x ×ø±ê
+        # å®šä¹‰çŸ©å½¢æ¡†å¸ƒå±€æ‰€éœ€çš„åˆå§‹å‚æ•°
+        initial_x = 16  # çŸ©å½¢æ¡†å·¦ä¸Šè§’ x åæ ‡çš„åˆå§‹å€¼
+        width = 180  # çŸ©å½¢æ¡†çš„å®½åº¦
+        gap_x = 16  # çŸ©å½¢æ¡†ä¹‹é—´çš„æ°´å¹³é—´éš”
+        initial_y = 100  # çŸ©å½¢æ¡†å·¦ä¸Šè§’ y åæ ‡çš„åˆå§‹å€¼
+        height = 120  # çŸ©å½¢æ¡†çš„é«˜åº¦
+        gap_y = 50  # çŸ©å½¢æ¡†ä¹‹é—´çš„å‚ç›´é—´éš”
+        # å®šä¹‰ x åˆ—è¡¨ï¼Œè¡¨ç¤ºçŸ©å½¢æ¡†çš„å·¦ä¸Šè§’ x åæ ‡
         x = [
             initial_x,
             initial_x + width + gap_x,
@@ -183,7 +181,7 @@ class SelectALevel:
             initial_x + width + gap_x + width + gap_x + width + gap_x
         ]
 
-        # ¶¨Òå x2 ÁĞ±í£¬±íÊ¾¾ØĞÎ¿òµÄÓÒÏÂ½Ç x ×ø±ê
+        # å®šä¹‰ x2 åˆ—è¡¨ï¼Œè¡¨ç¤ºçŸ©å½¢æ¡†çš„å³ä¸‹è§’ x åæ ‡
         x2 = [
             initial_x + width,
             initial_x + width + gap_x + width,
@@ -191,14 +189,14 @@ class SelectALevel:
             initial_x + width + gap_x + width + gap_x + width + gap_x + width
         ]
 
-        # ¶¨Òå y ÁĞ±í£¬±íÊ¾¾ØĞÎ¿òµÄ×óÉÏ½Ç y ×ø±ê
+        # å®šä¹‰ y åˆ—è¡¨ï¼Œè¡¨ç¤ºçŸ©å½¢æ¡†çš„å·¦ä¸Šè§’ y åæ ‡
         y = [
             initial_y,
             # initial_y + height + gap_y,
             # initial_y + height + gap_y + height + gap_y
         ]
 
-        # ¶¨Òå y2 ÁĞ±í£¬±íÊ¾¾ØĞÎ¿òµÄÓÒÏÂ½Ç y ×ø±ê
+        # å®šä¹‰ y2 åˆ—è¡¨ï¼Œè¡¨ç¤ºçŸ©å½¢æ¡†çš„å³ä¸‹è§’ y åæ ‡
         y2 = [
             initial_y + height,
             # initial_y + height + gap_y + height,
@@ -211,39 +209,39 @@ class SelectALevel:
                 if x3 <= mouse_x <= x4:
                     if y3 <= mouse_y <= y4:
                         if os.path.exists(f'image/{a}'):
-                            """¹Ø¿¨Ñ¡Ôñ"""
+                            """å…³å¡é€‰æ‹©"""
                             pass
                         else:
-                            print(f"¹Ø¿¨ÔİÎ´¿ª·Å,{a}")
+                            print(f"å…³å¡æš‚æœªå¼€æ”¾,{a}")
                 a += 1
         if 10 <= mouse_x <= 90:
             if 10 <= mouse_y <= 90:
                 self.scene.set_main_scene()
 
     def create_level(self):
-        # ¶¨Òå³£Á¿ºÍ¼ä¸ô
-        initial_x = 16  # ³õÊ¼ x ×ø±ê
-        width = 180  # ¾ØĞÎ¿ò¿í¶È
-        gap_x = 16  # Ë®Æ½¼ä¸ô
+        # å®šä¹‰å¸¸é‡å’Œé—´éš”
+        initial_x = 16  # åˆå§‹ x åæ ‡
+        width = 180  # çŸ©å½¢æ¡†å®½åº¦
+        gap_x = 16  # æ°´å¹³é—´éš”
 
-        initial_y = 100  # ³õÊ¼ y ×ø±ê
-        height = 120  # ¾ØĞÎ¿ò¸ß¶È
-        gap_y = 50  # ´¹Ö±¼ä¸ô
-        # Éú³É¾ØĞÎ¿òµÄ×óÉÏ½Ç x ×ø±êÁĞ±í x
+        initial_y = 100  # åˆå§‹ y åæ ‡
+        height = 120  # çŸ©å½¢æ¡†é«˜åº¦
+        gap_y = 50  # å‚ç›´é—´éš”
+        # ç”ŸæˆçŸ©å½¢æ¡†çš„å·¦ä¸Šè§’ x åæ ‡åˆ—è¡¨ x
         x = []
-        for i in range(4):  # Ñ­»·Éú³ÉËÄ¸ö¾ØĞÎ¿òµÄ×ø±ê
+        for i in range(4):  # å¾ªç¯ç”Ÿæˆå››ä¸ªçŸ©å½¢æ¡†çš„åæ ‡
             if i == 0:
-                x.append(initial_x)  # µÚÒ»¸ö¾ØĞÎ¿òµÄ×ø±ê
+                x.append(initial_x)  # ç¬¬ä¸€ä¸ªçŸ©å½¢æ¡†çš„åæ ‡
             else:
-                x.append(x[i - 1] + width + gap_x)  # ºóĞø¾ØĞÎ¿òµÄ×ø±ê
+                x.append(x[i - 1] + width + gap_x)  # åç»­çŸ©å½¢æ¡†çš„åæ ‡
 
-        # Éú³É¾ØĞÎ¿òµÄ×óÉÏ½Ç y ×ø±êÁĞ±í y
+        # ç”ŸæˆçŸ©å½¢æ¡†çš„å·¦ä¸Šè§’ y åæ ‡åˆ—è¡¨ y
         y = []
-        for j in range(1):  # Ñ­»·Éú³ÉÈı¸ö¾ØĞÎ¿òµÄ×ø±ê
+        for j in range(1):  # å¾ªç¯ç”Ÿæˆä¸‰ä¸ªçŸ©å½¢æ¡†çš„åæ ‡
             if j == 0:
-                y.append(initial_y)  # µÚÒ»¸ö¾ØĞÎ¿òµÄ×ø±ê
+                y.append(initial_y)  # ç¬¬ä¸€ä¸ªçŸ©å½¢æ¡†çš„åæ ‡
             else:
-                y.append(y[j - 1] + height + gap_y)  # ºóĞø¾ØĞÎ¿òµÄ×ø±ê
+                y.append(y[j - 1] + height + gap_y)  # åç»­çŸ©å½¢æ¡†çš„åæ ‡
 
         a = 1
         for y2 in y:

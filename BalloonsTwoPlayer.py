@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 import pygame
 import threading
 import random
@@ -25,7 +25,7 @@ class BalloonsTwoPlayer:
         self.length = 200
         self.balloon_speed_left = 0.6
         self.balloon_speed_right = 0.6
-        self.time = 10
+        self.time = 90
         self.if_time_threading = False
         self.if_left_win = False
         self.if_right_win = False
