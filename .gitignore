@@ -12,3 +12,4 @@ mian.exe
 auto-py-to-exe.json
 qodana.yaml
 /output
+/output/source code
