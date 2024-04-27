@@ -5,6 +5,7 @@ import pygame
 import random
 from threading import Thread
 import sys
+from ChemistryGame import ChemistryGame
 
 
 class BalloonsOnePlayer:
@@ -193,10 +194,7 @@ class BalloonsOnePlayer:
                     self.scene.set_selecta_level(1)
             if 550 <= x <= 550 + 170:
                 if 500 <= y <= 500 + 60:
-                    if self.level == 2:
-                        print("关卡暂未开放")
-                        self.scene.set_main_scene()
-                    self.scene.scenes = BalloonsOnePlayer(self.clock, self.scene, self.level + 1)
+                    self.scene.scenes = ChemistryGame(self.clock, self.scene)
                     self.scene.run_game()
         if 10 <= x <= 90 and 10 <= y <= 90:
             pygame.mixer.music.stop()

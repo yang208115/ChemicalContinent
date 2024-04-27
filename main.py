@@ -12,6 +12,7 @@ from QATwoPlayer import QATwoPlayer
 from tao import Tao
 from mimi import Mimi
 from ChemistryGame import ChemistryGame
+from maze import Maze
 
 pygame.init()
 pygame.mixer.init()
@@ -180,7 +181,8 @@ class SelectALevel:
                 (212, 100, 392, 220),  # 第2关按钮区域
                 (408, 100, 588, 220),  # 第3关按钮区域
                 (604, 100, 784, 220),  # 第4关按钮区域
-                (16, 240, 196, 390)  # 第5关按钮区域
+                (16, 240, 196, 390),  # 第5关按钮区域
+                (212, 240, 392, 390)
             ]
 
             # 检查鼠标点击位置是否在关卡按钮区域内
@@ -200,6 +202,9 @@ class SelectALevel:
                         self.scene.run_game()
                     if index == 5:
                         self.scene.scenes = QAOnePlayer(self.clock, self.scene)
+                        self.scene.run_game()
+                    if index == 6:
+                        self.scene.scenes = Maze(self.clock, self.scene)
                         self.scene.run_game()
 
         elif self.player_num == 2:
@@ -224,14 +229,14 @@ class SelectALevel:
     def create_level(self):
         if self.player_num == 1:
             # 生成矩形框的左上角 x 坐标列表 x
-            x_positions = [16, 212, 408, 604, 16]  # 最后一个位置设为16
+            x_positions = [16, 212, 408, 604, 16, 212]  # 最后一个位置设为16
 
             # 生成矩形框的左上角 y 坐标列表 y
-            y_positions = [100, 100, 100, 100, 240]  # 第五张图片的y位置设为240
+            y_positions = [100, 100, 100, 100, 240, 240]  # 第五张图片的y位置设为240
 
             # 加载关卡按钮图片
             level_images = [
-                pygame.image.load(os.path.join("image", f"level{i}.png")) for i in range(1, 6)
+                pygame.image.load(os.path.join("image", f"level{i}.png")) for i in range(1, 7)
             ]
 
             # 绘制关卡按钮

@@ -3,6 +3,7 @@
 import pygame
 import sys
 import random
+from BalloonsOnePlayer import BalloonsOnePlayer
 
 
 # 创建元素符号类
@@ -108,10 +109,14 @@ class Mimi:
         self.background = pygame.transform.scale(self.background_tmp, (800, 600))
         self.win_tmp = pygame.image.load('image/win2.png')
         self.win = pygame.transform.scale(self.win_tmp, (250, 250))
-        self.return_main_scene_tmp = pygame.image.load('image/return_main_scene.png')
-        self.return_main_scene = pygame.transform.rotozoom(self.return_main_scene_tmp, 0, 0.5)
         self.return_tmp = pygame.image.load("./image/return.png")
         self.return_ = pygame.transform.scale(self.return_tmp, (80, 80))
+        self.next_level_tmp = pygame.image.load('image/next_level.png')
+        self.next_level = pygame.transform.rotozoom(self.next_level_tmp, 0, 0.5)
+        self.return_main_scene_tmp = pygame.image.load('image/return_main_scene.png')
+        self.return_main_scene = pygame.transform.rotozoom(self.return_main_scene_tmp, 0, 0.5)
+        self.return_select_sLevel_tmp = pygame.image.load('image/return_select_aLevel.png')
+        self.return_select_sLevel = pygame.transform.rotozoom(self.return_select_sLevel_tmp, 0, 0.5)
 
     def run_game(self):
         self.load_img()
@@ -151,7 +156,9 @@ class Mimi:
         self.screen.blit(self.return_, (10, 10))
         if self.if_wim:
             self.screen.blit(self.win, (275, 150))
-            self.screen.blit(self.return_main_scene, (330, 500))
+            self.screen.blit(self.next_level, (550, 500))
+            self.screen.blit(self.return_select_sLevel, (330, 500))
+            self.screen.blit(self.return_main_scene, (110, 500))
 
         pygame.display.flip()
         self.clock.tick(60)
@@ -167,10 +174,20 @@ class Mimi:
                     self.scene.set_main_scene()
             if event.type == pygame.MOUSEBUTTONDOWN and self.if_wim:
                 x, y = pygame.mouse.get_pos()
-                if 330 <= x <= 500:
-                    if 500 <= y <= 560:
+                if 110 <= x <= 110 + 170:
+                    if 500 <= y <= 500 + 60:
                         pygame.mixer.music.stop()
                         self.scene.set_main_scene()
+                if 330 <= x <= 330 + 170:
+                    if 500 <= y <= 500 + 60:
+                        pygame.mixer.music.stop()
+                        self.scene.set_selecta_level(1)
+                if 550 <= x <= 550 + 170:
+                    if 500 <= y <= 500 + 60:
+                        pygame.mixer.music.stop()
+                        self.scene.scenes = BalloonsOnePlayer(self.clock, self.scene, 2)
+                        self.scene.run_game()
+
             elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                 # 检查是否点击了元素符号
                 for element in self.elements:

@@ -2,12 +2,13 @@
 import sys
 import pygame
 import random
+from QAOnePlayer import QAOnePlayer
 
 pygame.init()
 
 # 定义常见物质及其分类
 substances = {
-    "金属氧化物": ["Fe2O3", "Al2O3", "CuO", "ZnO", "BaO"],
+    "金属氧化物": ["Fe2O3", "Al2O3", "CuO", "ZnO", "BaO", "Fe3O4", "Cu2O"],
     "非金属氧化物": ["CO2", "SO2", "NO2", "P2O5", "CO"],
     "酸": ["H2SO4", "HCl", "HNO3", "H3PO4", "H2CO3"],
     "碱": ["NaOH", "KOH", "NH3·H2O", "Ca(OH)2", "Ba(OH)2"],
@@ -115,10 +116,19 @@ class ChemistryGame:
         if 10 <= x <= 90 and 60 <= y <= 140:
             pygame.mixer.music.stop()
             self.scene.set_main_scene()
-        if 330 <= x <= 330 + 170:
+        if 110 <= x <= 110 + 170:
             if 500 <= y <= 500 + 60:
                 pygame.mixer.music.stop()
                 self.scene.set_main_scene()
+        if 330 <= x <= 330 + 170:
+            if 500 <= y <= 500 + 60:
+                pygame.mixer.music.stop()
+                self.scene.set_selecta_level(1)
+        if 550 <= x <= 550 + 170:
+            if 500 <= y <= 500 + 60:
+                pygame.mixer.music.stop()
+                self.scene.scenes = QAOnePlayer(self.clock, self.scene)
+                self.scene.run_game()
 
     def check_mouse_click(self, pos):
         try:
@@ -157,17 +167,23 @@ class ChemistryGame:
         self.screen.blit(score_text, (20, 20))
         if self.if_wim:
             self.screen.blit(self.win, (275, 150))
-            self.screen.blit(self.return_main_scene, (300, 500))
+            self.screen.blit(self.next_level, (550, 500))
+            self.screen.blit(self.return_select_sLevel, (330, 500))
+            self.screen.blit(self.return_main_scene, (110, 500))
 
     def load_img(self):
-        self.return_main_scene_tmp = pygame.image.load('image/return_main_scene.png')  # 340*120
-        self.return_main_scene = pygame.transform.rotozoom(self.return_main_scene_tmp, 0, 0.7)  # 238*84
         self.return_tmp = pygame.image.load("./image/return.png")
         self.return_ = pygame.transform.scale(self.return_tmp, (80, 80))
         self.win_tmp = pygame.image.load('image/win2.png')
         self.win = pygame.transform.scale(self.win_tmp, (250, 250))
         self.bg_tmp = pygame.image.load('image/bg_skies.png')
         self.bg = pygame.transform.scale(self.bg_tmp, (800, 600))
+        self.next_level_tmp = pygame.image.load('image/next_level.png')
+        self.next_level = pygame.transform.rotozoom(self.next_level_tmp, 0, 0.5)
+        self.return_main_scene_tmp = pygame.image.load('image/return_main_scene.png')
+        self.return_main_scene = pygame.transform.rotozoom(self.return_main_scene_tmp, 0, 0.5)
+        self.return_select_sLevel_tmp = pygame.image.load('image/return_select_aLevel.png')
+        self.return_select_sLevel = pygame.transform.rotozoom(self.return_select_sLevel_tmp, 0, 0.5)
 
 
 class Button:

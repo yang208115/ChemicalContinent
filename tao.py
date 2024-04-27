@@ -4,6 +4,7 @@ import pygame
 import random
 import sys
 import os
+from mimi import Mimi
 
 
 class ChemicalSymbol(pygame.sprite.Sprite):
@@ -49,10 +50,14 @@ class Tao:
         self.table = Table("./image/biao.png", (0, 200))  # 创建表格对象
         self.win_tmp = pygame.image.load('image/win2.png')
         self.win = pygame.transform.scale(self.win_tmp, (250, 250))
-        self.return_main_scene_tmp = pygame.image.load('image/return_main_scene.png')
-        self.return_main_scene = pygame.transform.rotozoom(self.return_main_scene_tmp, 0, 0.5)
         self.return_tmp = pygame.image.load("./image/return.png")
         self.return_ = pygame.transform.scale(self.return_tmp, (80, 80))
+        self.next_level_tmp = pygame.image.load('image/next_level.png')
+        self.next_level = pygame.transform.rotozoom(self.next_level_tmp, 0, 0.5)
+        self.return_main_scene_tmp = pygame.image.load('image/return_main_scene.png')
+        self.return_main_scene = pygame.transform.rotozoom(self.return_main_scene_tmp, 0, 0.5)
+        self.return_select_sLevel_tmp = pygame.image.load('image/return_select_aLevel.png')
+        self.return_select_sLevel = pygame.transform.rotozoom(self.return_select_sLevel_tmp, 0, 0.5)
 
         # 创建化学符号对象列表
         self.chemical_symbols = []
@@ -102,7 +107,9 @@ class Tao:
             symbol.draw(self.screen)  # 绘制化学符号
         if self.if_wim:
             self.screen.blit(self.win, (275, 150))
-            self.screen.blit(self.return_main_scene, (330, 500))
+            self.screen.blit(self.next_level, (550, 500))
+            self.screen.blit(self.return_select_sLevel, (330, 500))
+            self.screen.blit(self.return_main_scene, (110, 500))
 
     def _check_event(self):
         for event in pygame.event.get():
@@ -151,10 +158,19 @@ class Tao:
                                 self.if_wim = True
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 x, y = pygame.mouse.get_pos()
-                if 330 <= x <= 500:
-                    if 500 <= y <= 560:
+                if 110 <= x <= 110 + 170:
+                    if 500 <= y <= 500 + 60:
                         pygame.mixer.music.stop()
                         self.scene.set_main_scene()
+                if 330 <= x <= 330 + 170:
+                    if 500 <= y <= 500 + 60:
+                        pygame.mixer.music.stop()
+                        self.scene.set_selecta_level(1)
+                if 550 <= x <= 550 + 170:
+                    if 500 <= y <= 500 + 60:
+                        pygame.mixer.music.stop()
+                        self.scene.scenes = Mimi(self.clock, self.scene)
+                        self.scene.run_game()
 
     def set_show_score(self):
         self.score_text_tmp = " 得分：" + str(self.score)

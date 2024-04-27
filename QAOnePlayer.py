@@ -6,6 +6,7 @@ import pygame
 import json
 import sys
 import os
+from maze import Maze
 
 
 class QAOnePlayer:
@@ -78,10 +79,14 @@ class QAOnePlayer:
         self.error = pygame.image.load(f'{self.main_path}/image/error.png')  # 160*160
         self.scoreboard = pygame.image.load(f'{self.main_path}/image/scoreboard.png')  # 500*375
         self.start = pygame.image.load(f'{self.main_path}/image/start.png')
-        self.return_main_scene_tmp = pygame.image.load('image/return_main_scene.png')  # 340*120
-        self.return_main_scene = pygame.transform.rotozoom(self.return_main_scene_tmp, 0, 0.7)  # 238*84
         self.return_tmp = pygame.image.load("./image/return.png")
         self.return_ = pygame.transform.scale(self.return_tmp, (80, 80))
+        self.next_level_tmp = pygame.image.load('image/next_level.png')
+        self.next_level = pygame.transform.rotozoom(self.next_level_tmp, 0, 0.5)
+        self.return_main_scene_tmp = pygame.image.load('image/return_main_scene.png')
+        self.return_main_scene = pygame.transform.rotozoom(self.return_main_scene_tmp, 0, 0.5)
+        self.return_select_sLevel_tmp = pygame.image.load('image/return_select_aLevel.png')
+        self.return_select_sLevel = pygame.transform.rotozoom(self.return_select_sLevel_tmp, 0, 0.5)
 
     def update_screen(self):
         self.screen.fill((135, 180, 255))
@@ -99,7 +104,9 @@ class QAOnePlayer:
         if self.if_win:
             self.screen.blit(self.scoreboard, (150, 100))
             self.screen.blit(pygame.font.Font("./Fonts/simsun.ttc", 70).render(str(self.score), True, (0, 0, 0)), (370, 310))
-            self.screen.blit(self.return_main_scene, (281, 490))
+            self.screen.blit(self.next_level, (550, 500))
+            self.screen.blit(self.return_select_sLevel, (330, 500))
+            self.screen.blit(self.return_main_scene, (110, 500))
         self.screen.blit(self.time_text, (385, 0))
         if self.statr_num == 1:
             self.screen.blit(self.start, (280, 250))
@@ -140,9 +147,19 @@ class QAOnePlayer:
                     t6 = Thread(target=self.wait)
                     t6.start()
         if self.if_win:
-            if 281 < x < 469:
-                if 490 < y < 574:
+            if 110 <= x <= 110 + 170:
+                if 500 <= y <= 500 + 60:
+                    pygame.mixer.music.stop()
                     self.scene.set_main_scene()
+            if 330 <= x <= 330 + 170:
+                if 500 <= y <= 500 + 60:
+                    pygame.mixer.music.stop()
+                    self.scene.set_selecta_level(1)
+            if 550 <= x <= 550 + 170:
+                if 500 <= y <= 500 + 60:
+                    pygame.mixer.music.stop()
+                    self.scene.scenes = Maze(self.clock, self.scene)
+                    self.scene.run_game()
         if 10 <= x <= 90 and 10 <= y <= 90:
             pygame.mixer.music.stop()
             self.scene.set_main_scene()

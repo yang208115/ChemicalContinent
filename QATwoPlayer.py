@@ -143,6 +143,7 @@ class QATwoPlayer:
         if self.if_win[0] or self.if_win[1]:
             if 281 < x < 469:
                 if 490 < y < 574:
+                    pygame.mixer.music.stop()
                     self.scene.set_main_scene()
         if 10 <= x <= 90 and 10 <= y <= 90:
             pygame.mixer.music.stop()
